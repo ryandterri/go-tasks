@@ -57,7 +57,7 @@ func ReadList() List {
 	return list
 }
 
-func WriteList(list List) {
+func WriteList(list *List) {
 	file, err := loadFile("list.csv", os.O_RDWR|os.O_TRUNC, 0644)
 	if err != nil {
 		panic(err)

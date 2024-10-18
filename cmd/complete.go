@@ -30,6 +30,7 @@ to quickly create a Cobra application.`,
 		if !list.Items[item_index].IsComplete() {
 			list.Items[item_index].CompletedAt = time.Now()
 			list.Save()
+			list.Print(true)
 		} else {
 			fmt.Println("task is already complete")
 		}

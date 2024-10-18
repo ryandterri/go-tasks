@@ -10,10 +10,10 @@ import (
 )
 
 type ListItem struct {
+	CompletedAt time.Time
 	CreatedAt   time.Time
 	Description string
 	Id          int
-	CompletedAt time.Time
 }
 
 type List struct {
@@ -39,10 +39,10 @@ func (list List) Print(all bool) {
 	w.Flush()
 }
 
-func (list List) Save() {
+func (list *List) Save() {
 	WriteList(list)
 }
 
-func (item ListItem) IsComplete() bool {
+func (item *ListItem) IsComplete() bool {
 	return !item.CompletedAt.IsZero()
 }
